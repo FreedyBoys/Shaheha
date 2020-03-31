@@ -77,11 +77,6 @@ mv /storage/emulated/0/EnjoyersRoot/PaksORI/game_patch_0.17.0.11800.pak /storage
 }
 
 date
-echo ""
-echo "• WARNING.....!!!"
-echo "[√]SEDANG MULAI PROSES" 
-echo "[√]JANGAN DI EXIT/CLOSE MT MANAGER INI"
-sleep 2
 echo ____________________________________________________________
 echo "• Your Device:" 
 getprop ro.product.brand

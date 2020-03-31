@@ -1,0 +1,233 @@
+COUNT=50
+Logcleaner () {
+date
+echo "\e[1m\e[94m**************************************"
+echo "\e[1m\e[94m******● Clearing Logs & Cache ●******\e[0m"
+echo "\e[1m\e[94m**************************************"
+rm -rf /storage/emulated/0/.chaozhuo.gameassistant
+rm -rf /storage/emulated/0/backups
+rm -rf /storage/emulated/0/.estrongs
+rm -rf /storage/emulated/0/.dlprovider
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/cache/GCloud
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/cache/GCloud.ini
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/cache/GCloud.config
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/cache/RemoteConfig.config
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/cache/GCloudSDKLog
+rm -rf /storage/emulated/0/tencent
+rm -rf /storage/emulated/0/.backups
+rm -rf /storage/emulated/0/MidasOversea
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/cache
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/ca-bundle.pem
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/tbslog
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/login-identifier.txt
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/cacheFile.txt
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/vmpcloudconfig.json
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/ProgramBinaryCache/B94641283CDC11007947F7B24801963EF9533535
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/ProgramBinaryCache
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/afd
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/IGH5Cache
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/GameErrorNoRecords
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Logs
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/RoleInfo/RoleInfo.json
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/UpdateInfo
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/ImageDownload
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Pandora
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/Engine
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/StatEventReportedFlag
+rm -rf /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/PufferTmpDir
+sleep 10
+}
+
+bypass()
+{
+rm -rf /data/data/com.tencent.ig/files &> /dev/null
+touch /data/data/com.tencent.ig/files
+rm -rf /data/data/com.tencent.ig/app_crashrecord &> /dev/null
+touch /data/data/com.tencent.ig/app_crashrecord
+chmod 550 /data/data/com.tencent.ig/files
+}
+
+patching()
+{
+if [ ! -d "/data/data/com.tencent.ig" ];
+then
+echo "• PUBGM GLOBAL Tidak Terinstall"
+echo "• Silahkan Install Terlebih Dahulu Game PUBG GLOBAL 0.17.0"
+exit 0;
+fi
+mv /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Paks/game_patch_0.17.0.11800.pak /storage/emulated/0/EnjoyersRoot/PaksORI
+
+mv /storage/emulated/0/EnjoyersRoot/LibMod/game_patch_0.17.0.11800.pak /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Paks
+sleep 1
+if [ ! -d "/storage/emulated/0/EnjoyersRoot/LibMod" ];
+then
+echo ""
+echo "• Installasi Gagal"
+echo "• Data Tidak ditemukan, silahkan coba lagi"
+echo "• Atau hubungi 911"
+exit 0;
+fi
+echo "[√] Patching Enjoyers Done!"
+}
+
+repair()
+{
+mv /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Paks/game_patch_0.17.0.11800.pak /storage/emulated/0/EnjoyersRoot/LibMod
+mv /storage/emulated/0/EnjoyersRoot/PaksORI/game_patch_0.17.0.11800.pak /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Paks
+}
+
+date
+echo ""
+echo "• WARNING.....!!!"
+echo "[√]SEDANG MULAI PROSES" 
+echo "[√]JANGAN DI EXIT/CLOSE MT MANAGER INI"
+sleep 2
+echo ____________________________________________________________
+echo "• Your Device:" 
+getprop ro.product.brand
+echo ____________________________________________________________
+echo "• Model:" 
+getprop ro.product.model
+echo ____________________________________________________________
+echo "• Hardware:"
+getprop ro.hardware
+echo "___________"
+CPU=`grep "model name" /proc/cpuinfo | cut -f 2 -d ':'`
+RAM=`grep "MemTotal" /proc/meminfo | cut -f 2 -d ':'`
+echo " |- CPU : " $CPU
+echo " |- RAM : " $RAM
+echo ____________________________________________________________
+echo "• Software:"
+getprop ro.build.software.version
+OS=`uname -sr`
+echo " |- OS 	: " $OS
+echo " |- Shell : " $SHELL
+echo ____________________________________________________________
+echo "• Please Wait..........."
+sleep 2
+echo ____________________________________________________________
+echo PUBG MOBILE GLOBAL SEASONE 12
+echo
+echo Package 	: 	com.tencent.ig
+echo Version  	: 
+echo            	AppVersion = 0.17.0.11800
+echo            	SrcVersion = 0.17.0.11807
+echo ____________________________________________________________
+echo • Creator By : Enjoyers - @gHesss_Boys
+echo ____________________________________________________________
+sleep 2
+echo ""
+echo ____________________________________________________________
+echo "[√] Notice :"
+echo "|____GUNAKAN SCRIPT - BYPASS MENU ENJOYER ONLY"
+echo "|_____PLAY SMART LIKE PRO PLAYER !!!"
+echo "|______PLAYING BRUTAL TIDAK DI SARANKAN"
+echo "|_______PLAYING BRUTAL BERESIKO BANNED BOSQUe"
+echo ____________________________________________________________
+sleep 3
+echo ""
+echo ____________________________________________________________
+echo "[√] FITUR SAFE :"
+echo "-Wallhack & Collor"
+echo "-Less Recoil"
+echo "-Headshot 50% - 70%"
+echo ""
+echo "# Jangan Gunakan fitur selain diatas jika takut banned"
+echo "# Jangan Tembak musuh dibalik Tembok,Pohon,Batu dan sebagainya"
+echo ____________________________________________________________
+sleep 10
+echo " "
+echo ____________________________________________________________
+echo "• Please Wait......"
+echo ""
+sleep 0
+echo "• Proses Injection Bypass"
+echo ____________________________________________________________
+sleep 2
+echo ""
+echo ____________________________________________________________
+echo "🏁Start Injection Bypass Enjoyers"
+sleep 2
+bypass
+sleep 0
+echo "[√] Bypass Enjoyers Done!"
+echo ____________________________________________________________
+echo ""
+sleep 2
+echo ____________________________________________________________
+echo "• Please Wait......"
+echo ""
+sleep 0
+echo "• Proses Patching"
+echo ____________________________________________________________
+echo ""
+echo ____________________________________________________________
+sleep 0
+echo "🏁Start Injection Patch Enjoyers"
+sleep 2
+patching
+sleep 1
+echo ____________________________________________________________
+echo ""
+echo ____________________________________________________________
+echo "🏁Start"
+echo "• Opening GameGuardian Enjoyers"
+sleep 2
+am start -n com.cicib/.MainActivity &> /dev/null
+sleep 1
+am start -n bin.mt.plus/bin.mt.plus.Main
+echo ____________________________________________________________
+sleep 2
+echo ""
+echo ____________________________________________________________
+echo "🏁Start"
+echo "• Opening Game PUBG Mobile"
+sleep 3
+am start -n com.tencent.ig/com.epicgames.ue4.SplashActivity &> /dev/null
+echo ____________________________________________________________
+sleep 50
+echo ""
+echo ""
+echo "============================================================"
+echo "• Start For Change Permissions & Anti Crash... "
+echo "============================================================"
+PACKAGE='com.tencent.ig'
+while [ $(pidof $PACKAGE) ]
+do
+Logcleaner
+((COUNT=$COUNT+10))
+if [ ! $(pidof $PACKAGE) ]; then
+break
+fi
+sleep 1
+done
+((final=$COUNT/60))
+am force-stop com.cicib
+sleep 0
+am start -n bin.mt.plus/bin.mt.plus.Main
+echo ____________________________________________________________
+printf "Game Telah Berhenti, Waktu Bermain Anda ";
+echo $final "Minutes ";
+echo "• Closing Game Guardian"
+echo ____________________________________________________________
+echo ""
+sleep 3
+echo ____________________________________________________________
+repair
+echo "• Repairs Paks and Permission to Default !!! "
+echo "• Please Wait......"
+echo ____________________________________________________________
+sleep 2
+echo ""
+echo ____________________________________________________________
+echo "Thank You BOSQUe"
+echo "[√] FINISH AND 👋😘 BYE BYE ENJOYERS 👋😘"
+echo ""
+echo "• Now You Can Exit Script/MT Manager"
+echo ____________________________________________________________
+sleep 0
+echo ""
+echo ____________________________________________________________
+echo "• Coding By @gHesss_Boys"
+echo ____________________________________________________________
+echo ""

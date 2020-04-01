@@ -74,9 +74,47 @@ repair()
 {
 mv /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Paks/game_patch_0.17.0.11800.pak /storage/emulated/0/EnjoyersRoot/LibMod
 mv /storage/emulated/0/EnjoyersRoot/PaksORI/game_patch_0.17.0.11800.pak /storage/emulated/0/Android/data/com.tencent.ig/files/UE4Game/ShadowTrackerExtra/ShadowTrackerExtra/Saved/Paks
+echo "	  [√] REPAIR BERHASIL!!!"
 }
 
+clearcache()
+{
+
+rm -rf /sdcard/Android/data/com.*/cache
+rm -rf /sdcard/Android/data/bin.*/cache
+rm -rf /sdcard/Android/data/by.*/cache
+rm -rf /sdcard/Android/data/ru.*/cache
+rm -rf /sdcard/Android/data/eu.*/cache
+rm -rf /sdcard/Android/data/org.*/cache
+rm -rf /sdcard/Android/data/tv.*/cache
+rm -rf /sdcard/Android/data/net.*/cache
+echo "_Clear Cache 25%"
+sleep 1
+rm -rf /sdcard/Android/data/*/cache
+echo "__Clear Cache 50%"
+sleep 1
+rm -rf /data/data/com.*/cache
+rm -rf /data/data/bin.*/cache
+rm -rf /data/data/by.*/cache
+rm -rf /data/data/ru.*/cache
+rm -rf /data/data/eu.*/cache
+rm -rf /data/data/org.*/cache
+rm -rf /data/data/tv.*/cache
+rm -rf /data/data/net.*/cache
+echo "___Clear Cache 75%"
+sleep 1
+am force-stop com.tencent.ig
+rm -rf /data/data/*/cache
+echo "____Clear Cache 100%"
+echo " "
+echo "	  [√] ALL DONE!!!"
+}
 date
+echo ""
+echo "• WARNING.....!!!"
+echo "[√]SEDANG MULAI PROSES" 
+echo "[√]JANGAN DI EXIT/CLOSE MT MANAGER INI"
+sleep 2
 echo ____________________________________________________________
 echo "• Your Device:" 
 getprop ro.product.brand
@@ -174,7 +212,6 @@ am start -n bin.mt.plus/bin.mt.plus.Main
 echo ____________________________________________________________
 sleep 2
 echo ""
-rm -rf /data/data/com.tencent.ig/databases
 echo ____________________________________________________________
 echo "🏁Start"
 echo "• Opening Game PUBG Mobile"
@@ -209,11 +246,15 @@ echo ____________________________________________________________
 echo ""
 sleep 3
 echo ____________________________________________________________
+echo "[√] PROSES REPAIR DAN CLEARING CACHE"
+echo "    • Repairs Paks and Permission to Default !!! "
+echo "    • Membersihkan Cache - Data "
+echo "    • Please Wait......"
 repair
-echo "• Repairs Paks and Permission to Default !!! "
-echo "• Please Wait......"
-echo ____________________________________________________________
 sleep 2
+clearcache
+echo ____________________________________________________________
+sleep 1
 echo ""
 echo ____________________________________________________________
 echo "Thank You BOSQUe"

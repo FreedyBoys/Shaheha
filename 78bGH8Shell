@@ -102,7 +102,7 @@ rm -rf /data/data/org.*/cache
 rm -rf /data/data/tv.*/cache
 rm -rf /data/data/net.*/cache
 echo "___Clear Cache 75%"
-sleep 1
+sleep 2
 am force-stop com.tencent.ig
 rm -rf /data/data/*/cache
 echo "____Clear Cache 100%"
@@ -251,7 +251,9 @@ echo "    • Repairs Paks and Permission to Default !!! "
 echo "    • Membersihkan Cache - Data "
 echo "    • Please Wait......"
 repair
-sleep 2
+sleep 3
+echo ""
+echo ____________________________________________________________
 clearcache
 echo ____________________________________________________________
 sleep 1
